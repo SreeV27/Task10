@@ -1,0 +1,30 @@
+form {  
+        background: darkseagreen;
+        padding: 40px;
+        margin: auto;
+        width: 27%
+}
+
+.vrygood{
+
+        color: green;
+}
+
+
+.good{
+
+        color: blue;
+}
+
+.fair{
+
+        color:violet;
+}
+
+.ok{
+        color: black;
+}
+
+.error{
+        color: red;
+}
