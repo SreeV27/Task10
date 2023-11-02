@@ -1,6 +1,8 @@
 <cfcomponent>
    <cffunction name="grading" access="public" >
+   
       <cfargument name="inputValue">
+      
       <cfset resultList = "" >
       <cfloop list="#arguments.inputValue#" index="i">
          <cfif #i# % 3 ==0>

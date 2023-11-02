@@ -23,6 +23,7 @@
          <cfif structKeyExists(form, "number")>
          <cfset myComponent = createObject("component","cfc/3_CFCONTINUE")>
          <cfset result = myComponent.grading(#form.number#)>
+        
          </cfif>
       </div>
    </body>
