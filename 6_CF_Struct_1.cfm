@@ -18,12 +18,12 @@ Create a structure in ColdFusion with the values from the text box. The text ent
          <form action="6_CF_Struct_1.cfm" class="bg-warning-subtle mt-5 border w-50 m-auto p-5 " method="post">
            
            <div>
-           <label for="txtBox1">Text Box 1</label>
+           <label for="txtBox1">Key</label>
             <input type="text" name="txtBox1"><br>
 
            </div>
             <div class=" mt-3">
-              <label for="txtBox2">Text Box 2</label>
+              <label for="txtBox2">Value</label>
             <input type="text" name="txtBox2"><br>
             </div>
           
