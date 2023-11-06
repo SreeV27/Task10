@@ -10,6 +10,7 @@
    </head>
    <body>
       <div class=" pt-5 text-center">
+      
          Show below details in a page Today's date, current Month in numeric, current month in word, Last friday date, Last day of month. Show Last 5 days date & day
          Sunday should be red, Monday - green,Tuesday - orange, Wednesday - yellow, Thursday - bold black, Friday - blue, Saturday - bold red
          <form action="4_Date_with_colours.cfm"  method="post">
