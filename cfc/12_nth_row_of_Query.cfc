@@ -12,12 +12,12 @@
                <th>Firstname</th>
                <th>Lastname</th>
             </tr>
-            <cfoutput query="queryName">
+            <cfloop query="queryName">
                <tr>
-                  <td>#queryName.firstname#</td>
-                  <td>#queryName.lastname#</td>
+                  <td><cfoutput>#queryName.firstname#</cfoutput></td>
+                  <td><cfoutput>#queryName.lastname#</cfoutput></td>
                </tr>
-            </cfoutput>
+            </cfloop>
          </table>
          <cfquery name="specificRow" datasource="#dsn#">
             SELECT *
