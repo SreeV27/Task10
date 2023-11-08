@@ -7,7 +7,7 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <link rel="stylesheet" href="style/common.css">
-      <title>Thumbnail</title>
+      <title>Image Details</title>
    </head>
    <body>
       <cfset imageFileName = url.path>
@@ -22,14 +22,16 @@
          <table class="mt-5 ">
             <tr >
                <th>Name</th>
+               <th>Description</th>
                <th>Image</th>
             </tr>
             <cfoutput >
                <tr>
                   <td>#myquery.name#</td>
+                  <td>#myquery.description#</td>
                   <td> 
                      <a href="14_details.cfm?path=#myquery.image_name#" <button class=" p-0 border-0">
-                     <img src="/Task10/assets/#myquery.image_name#" style=" width: 20px; height: 20px;" alt="My Image">
+                     <img src="/Task10/assets/#myquery.image_name#"  alt="My Image">
                      </button>
                      </a>
                   </td>
@@ -37,7 +39,7 @@
             </cfoutput>
          </table>
          <a  href="14_Upload_validation_and_Image_function.cfm">
-         <button class="mt-4 ">Back</button>
+         <button class="mt-4 ">Exit</button>
          </a>
       </center>
    </body>

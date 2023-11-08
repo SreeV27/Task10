@@ -26,6 +26,7 @@
             OFFSET #row#-1 ROWS
             FETCH NEXT 1 ROWS ONLY;
          </cfquery>
+         
          <table>
             <tr>
                <th>Firstname</th>
