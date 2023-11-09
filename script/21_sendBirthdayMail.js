@@ -8,9 +8,10 @@ function validateEmail(){
         mailError.text("")
         return true;
     }
-    else{
+    else
+    {
         mailError.text("Invalid email address")
-return false;
+        return false;
 
     }
 

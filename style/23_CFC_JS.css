@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    
+    background-color: #669900;
+}
+
+.container{
+  
+    width: 640px;
+}
+
+.logo{
+    background-color: #99cc00;
+}
+
+.data_form{
+    margin: 20px 14px 0 14px;
+    padding: 0 0 20px 0;
+}
+
+.header-font{
+    font-family: "Lucida Grande","Lucida Sans Unicode", Tahoma, sans-serif;
+}
+
+.fs-13{
+    font-size: 13px;
+}
+
+.header-margin{
+    margin-bottom: 0.2rem;
+}
+
+.header{
+    margin: 0 0 5px 0;
+    padding: 0 1% 1.1em 1%;
+}
+
+
+.text{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.w-27{
+    width: 27px;
+}
+.w-42{
+    width: 42px;
+}
+
+.fs-11{
+    font-size: 11px;
+}
+
+.date_span{
+    height: 30px;
+    margin-top: 9px;
+}
+
+form ul {
+   
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    
+}
+
+form li {
+    margin: 0;
+    padding: 6px 1% 9px 1%;
+    background-color: transparent;
+    width: 64%;
+
+   
+}
+
