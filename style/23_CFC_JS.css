@@ -5,6 +5,7 @@
 body {
     
     background-color: #669900;
+    padding-bottom: 65px;
 }
 
 .container{
@@ -60,6 +61,7 @@ body {
     margin-top: 9px;
 }
 
+
 form ul {
    
     margin: 0;
@@ -77,3 +79,50 @@ form li {
    
 }
 
+.calender {
+    background: url(../assets/calendar.png) no-repeat;
+    height: 17px;
+    width: 17px;
+    outline:none;
+    border: 0;
+}
+
+.btn_calender{
+
+    background: white;
+    height: 27px;
+    width: 21px;
+    outline: none;
+    border: 0;
+}
+
+.salary{
+    padding: 2px 0px;
+}
+
+.cent{
+    width: 24px;
+    padding-left: 2px;
+}
+
+.contact_info{
+    width: 100%;
+    border-top: 1px dotted #000;
+}
+
+.w-33{
+    width: 33px;
+}
+
+.fs-10{
+    font-size: 10px;
+}
+
+.fs-13{
+    font-size: 13px;
+}
+
+
+.footer_clr{
+    color: #606060;
+}
