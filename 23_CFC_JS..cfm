@@ -6,13 +6,14 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
       <link rel="stylesheet" href="style/23_CFC_JS.css">
       <title>Employment Application</title>
+      
    </head>
    <body >
       <div class="bg-white mx-auto mt-4 container p-0">
          <h1 class="logo container">
             <a href="##" ><img src="assets/wflogo-padding.png" alt="logo"></a>
          </h1>
-         <form  class="data_form" enctype="multipart/form-data" onsubmit="valiateForm()">
+         <form  action="23_CFC_JS..cfm" class="data_form" enctype="multipart/form-data" onsubmit="valiateForm()" method="post">
             <div class="border-bottom header" >
                <h5 class="fw-normal header-margin header-font">Employment Application</h5>
                <span class=" fs-13 header-font">Infinity Box Inc.</span>
@@ -49,6 +50,7 @@
                   <span class="fw-normal ps-2">Yes</span><br>
                   <input type="radio" id="relocateNo" name="relocate" value="No">
                   <span class="fw-normal ps-2">No</span>
+                  <input type="text"  class="d-none" name="relocateResult" id="relocateResult"</input>
                   </label>         
                </li>
                <li >
@@ -72,7 +74,7 @@
                      <input class="w-42  mt-1 py-1 ps-1" type="text" id="year" name="year" size="4" minlength="4" maxlength="4"><br>
                      <span class="fw-normal fs-11 ms-1">YYYY </span>
                      </span>
-                     <input  type="text" class=" mt-2 ms-1 calender" id="calender" >
+                     <input  type="text" class=" mt-2 ms-1 calender" name="calender" id="calender" >
                   </div>
                </li>
                <li onfocus="changeBackgroundColor(this)" tabindex="0">
@@ -103,6 +105,7 @@
                   <input class="salary cent ms-1" type="text" size="2" maxlength="2" name="cent" id="cent"> <br>
                   <span class="fw-normal ms-1 fs-11">Cents</span>          
                   </span>
+                  <span id="salaryError" class="text-danger"></span><br>   
                   </span>                  
                </li>
                <li class="contact_info">
@@ -161,13 +164,44 @@
                </li>
             </ul>
          </form>
+        
       </div>
+      
+
       <div class="pt-3 text-center footer_clr">
          <!--- Footer--->
          <span class="fs-10">Powered By</span><br>
          <img src="assets/footerimg.png" alt="logo" width="100px" height="40px"><br>
          <span class="fs-13">See how easy it is to <a class="txt-primary">create a form</a></span>
       </div>
+  
+      <cfif structKeyExists(form,"position") >
+             
+            <cfdump var="#form.relocateResult#" abort>
+         
+         <cfinvoke component="cfc/23_CFC_JS" method="saveData" fileToUpload="form.resume">
+
+            
+            <cfinvokeargument name="position" value="#form.position#">
+            <cfinvokeargument name="relocate" value="#form.relocateResult#">
+
+            <cfset createdDate=CreateDate(#form.year#,#form.month#,#form.date#)>           
+           
+            <!-- Format the date as needed -->
+            <cfset formattedDate = dateFormat(createdDate, "mm-dd-yyyy")>
+        
+            <cfinvokeargument name="joinDate" value="#formattedDate#">
+            <cfinvokeargument name="portfolio" value="#form.portfolio#">       
+            <cfinvokeargument name="salary" value="#form.dollar#.#form.cent#">
+            <cfinvokeargument name="fname" value="#form.fname#">
+            <cfinvokeargument name="lname" value="#form.lname#">
+            <cfinvokeargument name="email" value="#form.mail#">
+            <cfinvokeargument name="phno" value="#form.tel_1##form.tel_2##form.tel_3#">   
+   
+            
+         </cfinvoke>
+
+      </cfif>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script src="script/23_CFC_JS.js"></script>
