@@ -21,20 +21,20 @@
          </form>
          <cfif structKeyExists(form, "number")>
          <cfset myComponent = createObject("component","cfc/1_CFIF_ELSEIF_ELSE")>
-         <cfset result = myComponent.grading(#form.number#)>
-         <cfif result =="5">
+         <cfset local.result = myComponent.grading(#form.number#)>
+         <cfif local.result =="5">
             <cfoutput>
                <p class="vrygood fs-2">Very Good</p>
             </cfoutput>
-            <cfelseif  result =="4">
+            <cfelseif  local.result =="4">
             <cfoutput>
                <p class="good fs-2">Good</p>
             </cfoutput>
-            <cfelseif  result =="3">
+            <cfelseif  local.result =="3">
             <cfoutput>
                <p class="fair fs-2">Fair</p>
             </cfoutput>
-            <cfelseif  result =="2" || result == "1">
+            <cfelseif  local.result =="2" || result == "1">
             <cfoutput>
                <p class="ok fs-2">Ok</p>
             </cfoutput>

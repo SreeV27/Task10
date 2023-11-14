@@ -40,7 +40,7 @@
 
 
                     <cfelse>
-                        <span class="text-primary fs-2""> <cfoutput>#i# </cfoutput></span>
+                        <span class="text-primary fs-2"> <cfoutput>#i# </cfoutput></span>
 
                    </cfif>
 

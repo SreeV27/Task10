@@ -64,14 +64,17 @@ function validateRelocate() {
 
 
   var relocateResultInput = $("#relocateResult");
+  var value = $('input[name="relocate"]:checked').val();
 
-
+  // Set the value to the relocateResult input field
 
 
   // Check if an option is selected
   if (relocateValue) {
      relocateError.text("");
-     relocateResultInput.value = relocateValue.value;
+     $("#relocateResult").val(value);
+   
+     
    
      return true;
 
