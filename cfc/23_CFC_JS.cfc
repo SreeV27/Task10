@@ -19,7 +19,7 @@
         <cfset uploadedFileName = cffile.serverFile>
             
             
-        <cfset dsn = "mydb">
+       
         <cfquery name="query" datasource="#dsn#">
               insert into dbo.tb_user(first_name,last_name,mail,phno,position,relocate,start_date,portfolio,resume,salary) 
               values(
