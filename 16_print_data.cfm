@@ -16,10 +16,10 @@
          <center>
             <cfparam name="value" default=1>
             <table border="1" class="bg-success-subtle">
-               <cfloop from="1" to="3" index="row">
+               <cfloop from="1" to="3" index="i">
                   <tr>
                      <cfset  temp=value>
-                     <cfloop from="1" to="3" index="col">
+                     <cfloop from="1" to="3" index="j">
                         <td class="p-3 ">
                            <cfoutput>#temp#</cfoutput>
                         </td>

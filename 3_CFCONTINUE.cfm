@@ -22,7 +22,7 @@
          </form>
          <cfif structKeyExists(form, "number")>
          <cfset myComponent = createObject("component","cfc/3_CFCONTINUE")>
-         <cfset result = myComponent.grading(#form.number#)>
+         <cfset result = myComponent.dividedByThree(#form.number#)>
         
          </cfif>
       </div>

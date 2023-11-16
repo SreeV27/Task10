@@ -1,5 +1,5 @@
 <cfcomponent>
-   <cffunction name="grading" access="public" >
+   <cffunction name="dividedByThree" access="public" >
    
       <cfargument name="inputValue">
       

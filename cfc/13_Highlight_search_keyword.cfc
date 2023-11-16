@@ -12,9 +12,9 @@
                 </cfif>
             </cfloop>
 
-<cfoutput>
-  Found the key word in #wordCount# times - #sentence#
-</cfoutput>
+            <cfoutput>
+            Found the key word in #wordCount# times - #sentence#
+            </cfoutput>
 
     </cffunction>
 
