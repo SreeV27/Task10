@@ -22,19 +22,34 @@
                   <li>
                      <label for="name">Enter the text</label><br>
                      <textarea id="text" name="text" rows="4" cols="30">
-                        </textarea>
-                     
+                     </textarea>
                   </li>
-                  
                   </li>
                   <li class="mt-3">
                      <input type="submit" name="submit" id="submit" onclick=insertIntoDb()>
                   </li>
                   <li class="mt-3">
-                     <input type="submit" name="nxtPage" id="nxtPage" value="Next Page">
                   </li>
                </ul>
             </form>
+            <cfif structKeyExists(form,"submit")>
+            <cfset myTagCloud = createObject("component", "cfc.tagColud").init(text=form.text)>  
+            <cfset session.text=#form.text#>
+            <!--- Output the structure --->
+            <!--- <cfdump var="#myTagCloud#"  >--->
+            <cfinvoke component="cfc.tagColud" method="insertIntoDb" returnvariable="returnValue">
+               <cfinvokeargument  name="text"  value="#myTagCloud#">
+            </cfinvoke>
+            <cfoutput>
+               <cfif returnValue>
+                  <form action="25_display.cfm" method="post">
+                     <input  type="hidden" name="sessionText" value="#session.text#">
+                     <input type="submit" name="nxtPage" id="nxtPage" value="Next Page">                    
+                 </form>
+                
+               </cfif>
+            </cfoutput>
+            </cfif>
          </div>
       </center>
       <script src="script/25_coldfusion_db.js"></script>

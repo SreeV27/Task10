@@ -15,7 +15,7 @@
        </cfif>
     </cffunction>
     
-    <cffunction  name="addSubscriber" access="remote" returntype="boolean">
+    <cffunction  name="addSubscriber" access="remote" returntype="boolean" >
        <cfargument name="name" type="string" required="true">
        <cfargument name="mail" type="string" required="true">
        <cfquery name="qryaddSubscriber" result="addSubscriberResult">
