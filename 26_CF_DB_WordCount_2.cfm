@@ -18,12 +18,12 @@
       </div>
       <center>
          <div>
-            <form action="25_index.cfm" class="bg-warning-subtle mt-5 border w-50 m-auto p-5 "  method="post" onsubmit="">
+            <form action="26_CF_DB_WordCount_2.cfm" class="bg-warning-subtle mt-5 border w-50 m-auto p-5 " enctype="multipart/form-data"  method="post" onsubmit="">
                <ul>
                   <li>
-                     <label for="name">Enter the text</label><br>
-                     <textarea id="text" name="text" rows="4" cols="30">
-                     </textarea>
+                     <label for="name">Upload a file</label>
+                     <input type="file" id="myfile" name="myfile" accept=".txt, .doc">
+                    
                   </li>
                   </li>
                   <li class="mt-3">
@@ -34,8 +34,16 @@
                </ul>
              
             </form>
+
+           
             <cfif structKeyExists(form,"submit")>
-            <cfset myTagCloud = createObject("component", "cfc/tagColud").init(text=form.text)>  
+
+                <cfif structKeyExists(form,"myfile")>           
+                    <cfinvoke component="cfc/26_CF_DB_WordCount_2" method="saveDoc" fileupload="form.myfile" returnvariable="result">
+                    </cfinvoke>
+                </cfif>
+             
+            <cfset myTagCloud = createObject("component", "cfc/26_CF_DB_WordCount_2").init(text=form.myfile)>  
             <cfset local.text=#form.text#>
             <!--- Output the structure --->
             <!--- <cfdump var="#myTagCloud#"  >--->
