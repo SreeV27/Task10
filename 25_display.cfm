@@ -7,7 +7,7 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <link rel="stylesheet" href="style/common.css">
-      <title>Document</title>
+      <title>Word Count</title>
    </head>
    <body>
       <div class=" pt-5 text-center">
@@ -17,8 +17,8 @@
          <cfinvoke  component="cfc/tagColud" method="displayValues" returnvariable="returnValue">
             <cfinvokeargument  name="text"  value="#receivedText#">
          </cfinvoke>
-         <cfdump  var="#returnValue#">
-         <!--- <center>
+       
+        <center>
             <table>
                <thead>
                   <th>Text</th>
@@ -26,11 +26,27 @@
                </thead>
                <tbody>
                 <cfoutput>
-                    #returnValue#
+                  <cfloop collection="#returnValue#" item="word">
+                     <tr>
+                       <td>#word#</td>
+                       <td>#returnValue[word]#</td>
+                     </tr>
+                   </cfloop>
                 </cfoutput>
                </tbody>
             </table>
-            <center>--->
+         <cfoutput>
+            
+           <form class="mt-3" action="25_display_count_color.cfm" method="post">
+            <!--- Convert the structure to a JSON string using serializeJSON --->
+               <cfset jsonString = serializeJSON(returnValue)>
+
+               <!--- Output the JSON string in an input field --->
+               <input type="text" name="jsonInput" value="#htmlEditFormat(jsonString)#">
+            <input type="submit" name="nxtPage" id="nxtPage" value="Next Page">
+           </form>
+         </cfoutput>
+            <center>
          </cfif>
       </div>
    </body>
