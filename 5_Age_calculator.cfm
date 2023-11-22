@@ -19,8 +19,8 @@
             <input  class="border-0 mt-3" type="submit"  name="submit" value="Submit">
          </form>
          <cfif structKeyExists(form, "submit")>
-         <cfset myComponent = createObject("component","cfc/5_Age_calculator")>
-         <cfset result = myComponent.age(#form.userDob#,#form.motherDob#)>
+         <cfset local.myComponent = createObject("component","cfc/5_Age_calculator")>
+         <cfset local.result = local.myComponent.age(#form.userDob#,#form.motherDob#)>
          </cfif>
       </div>
    </body>

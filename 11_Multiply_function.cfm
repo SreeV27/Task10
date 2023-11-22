@@ -23,9 +23,9 @@
                   <span>  multiply(1,2)</span>
                </td>
                <td>
-                  <cfset myComponent = createObject("component","cfc/11_Multiply_function")>
-                  <cfset res1=myComponent.multiply(1,2)>
-                  <cfoutput> #res1#</cfoutput>
+                  <cfset local.myComponent = createObject("component","cfc/11_Multiply_function")>
+                  <cfset local.res1=local.myComponent.multiply(1,2)>
+                  <cfoutput> #local.res1#</cfoutput>
                </td>
             </tr>
             <tr class="border">
@@ -33,9 +33,9 @@
                   <span>  multiply(1,2,3)</span>
                </td>
                <td>
-                  <cfset myComponent = createObject("component","cfc/11_Multiply_function")>
-                  <cfset res2=myComponent.multiply(1,2,3)>
-                  <cfoutput> #res2#</cfoutput>
+                  <cfset local.myComponent = createObject("component","cfc/11_Multiply_function")>
+                  <cfset local.res2=local.myComponent.multiply(1,2,3)>
+                  <cfoutput> #local.res2#</cfoutput>
                </td>
             </tr>
             <tr class="border">
@@ -43,9 +43,9 @@
                   <span>  multiply(1,2,3,4)</span>
                </td>
                <td>
-                  <cfset myComponent = createObject("component","cfc/11_Multiply_function")>
-                  <cfset res3=myComponent.multiply(1,2,3,4)>
-                  <cfoutput> #res3#</cfoutput>
+                  <cfset local.myComponent = createObject("component","cfc/11_Multiply_function")>
+                  <cfset local.res3=local.myComponent.multiply(1,2,3,4)>
+                  <cfoutput> #local.res3#</cfoutput>
                </td>
             </tr>
          </table>

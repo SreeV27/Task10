@@ -1,0 +1,29 @@
+body {
+        margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 11px 5px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    border-radius: 10px;
+    color: black;
+}
+
+.logout {
+    float: right;
+
+}

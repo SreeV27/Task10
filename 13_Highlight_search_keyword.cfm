@@ -23,9 +23,11 @@
             
             <input class="mt-3"   type="submit" id="submit" name="submit" value="submit">
          </form>
+
          <cfif  structKeyExists(form,"word")>
+         <cfset local.sentence="the quick brown fox jumps over the lazy dog">
          <cfset myComponent = createObject("component","cfc/13_Highlight_search_keyword")>
-         <cfset result=myComponent.wordSearching(#form.word#)>
+         <cfset result=myComponent.wordSearching(#form.word#,#local.sentence#)>
          </cfif>
       </div>
    </body>
