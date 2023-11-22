@@ -1,10 +1,10 @@
 <cfcomponent>
    <cffunction name="multiply" access="public" returntype="numeric">
-      <cfset result=1>
+      <cfset local.result=1>
       <!--- Loop through all arguments  --->
       <cfloop index="i" from="1" to="#arrayLen(arguments)#">
-         <cfset result *= arguments[i]>
+         <cfset local.result *= arguments[i]>
       </cfloop>
-      <cfreturn result>
+      <cfreturn local.result>
    </cffunction>
 </cfcomponent>

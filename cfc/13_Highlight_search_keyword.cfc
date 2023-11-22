@@ -1,22 +1,19 @@
 <cfcomponent>
     <cffunction name="wordSearching" access="public">
         <cfargument name="word">
-        <cfset sentence="the quick brown fox jumps over the lazy dog">
+        <cfargument name="sentence">
+        <cfset local.sentence=#arguments.sentence#> 
+        <cfset local.wordCount = 0>
+        <cfset local.wordList = ListToArray(local.sentence, " ")>
+        <cfloop from="1" to="#ArrayLen(local.wordList)#" index="i">
+            <cfif CompareNoCase(local.wordList[i], #arguments.word#) EQ 0>
+                <cfset local.wordCount = local.wordCount + 1>
+            </cfif>
+        </cfloop>
 
-
-            <cfset wordCount = 0>
-            <cfset wordList = ListToArray(sentence, " ")>
-            <cfloop from="1" to="#ArrayLen(wordList)#" index="i">
-                 <cfif CompareNoCase(wordList[i], #arguments.word#) EQ 0>
-                    <cfset wordCount = wordCount + 1>
-                </cfif>
-            </cfloop>
-
-            <cfoutput>
-            Found the key word in #wordCount# times - #sentence#
-            </cfoutput>
+        <cfoutput>
+            Found the key word in #local.wordCount# times - #local.sentence#
+        </cfoutput>
 
     </cffunction>
-
-
 </cfcomponent>

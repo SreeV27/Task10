@@ -1,9 +1,9 @@
 <cfcomponent>
    <cffunction name="dbProcessing" access="public">
       <cfargument name="num">
-      <cfset row=#arguments.num#>
-      <cfset dsn = "mydb">
-      <cfquery name="queryName" datasource="#dsn#">
+      <cfset local.row=#arguments.num#>
+      <cfset local.dsn = "mydb">
+      <cfquery name="queryName" datasource="#local.dsn#">
          SELECT * FROM dbo.tb_name
       </cfquery>
       <center>
@@ -19,7 +19,7 @@
                </tr>
             </cfloop>
          </table>
-         <cfquery name="specificRow" datasource="#dsn#">
+         <cfquery name="specificRow" datasource="#local.dsn#">
             SELECT *
             FROM dbo.tb_name
             ORDER BY (SELECT NULL)  -- You can use any constant expression here for ordering
@@ -32,12 +32,12 @@
                <th>Firstname</th>
                <th>Lastname</th>
             </tr>
-            <cfoutput query="specificRow">
-               <tr>
-                  <td>#specificRow.firstname#</td>
-                  <td>#specificRow.lastname#</td>
-               </tr>
-            </cfoutput>
+               <cfoutput query="specificRow">
+                  <tr>
+                     <td>#specificRow.firstname#</td>
+                     <td>#specificRow.lastname#</td>
+                  </tr>
+              </cfoutput>
          </table>
       </center>
    </cffunction>

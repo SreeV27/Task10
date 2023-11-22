@@ -1,43 +1,43 @@
 <cfcomponent>
    <cffunction name="dateFormatting" access="public">
-      <cfset currentDate = CreateDateTime(
+      <cfset local.currentDate = CreateDateTime(
       Year(Now()), Month(Now()), Day(Now()))>
-      <cfset formattedDate = DateFormat(currentDate, 'dd-mm-yyyy')>
-      <cfset  monthInword= DateTimeFormat(currentDate,"mmmm")>
-      <cfset  monthInNumeric= DateTimeFormat(currentDate,"mm")>
-      <cfoutput>Today's date:#formattedDate#</cfoutput>
+      <cfset local.formattedDate = DateFormat(local.currentDate, 'dd-mm-yyyy')>
+      <cfset  local.monthInword= DateTimeFormat(local.currentDate,"mmmm")>
+      <cfset  local.monthInNumeric= DateTimeFormat(local.currentDate,"mm")>
+      <cfoutput>Today's date:#local.formattedDate#</cfoutput>
       <br>
-      <cfoutput>Month in Numeric:#monthInNumeric#</cfoutput>
+      <cfoutput>Month in Numeric:#local.monthInNumeric#</cfoutput>
       <br>
-      <cfoutput> Month in Word:#monthInWord#</cfoutput>
+      <cfoutput> Month in Word:#local.monthInWord#</cfoutput>
       <br>
-      <cfset dtThisMonth = CreateDate(Year( Now() ),Month( Now() ),	1) />
+      <cfset local.dtThisMonth = CreateDate(Year( Now() ),Month( Now() ),	1) />
       <!---
          Now, get the last day of the current month. We
          can get this by subtracting 1 from the first day
          of the next month.
          --->
-      <cfset dtLastDay = (DateAdd( "m", 1, dtThisMonth ) -1) />
+      <cfset local.dtLastDay = (DateAdd( "m", 1, local.dtThisMonth ) -1) />
       <!-- Format the date in "yyyy-mm-dd" format -->
-      <cfset formattedDate = DateFormat(dtLastDay, "dd-mm-yyyy") />
-      <cfoutput>Last Date: #formattedDate#</cfoutput>
+      <cfset local.formattedDate = DateFormat(local.dtLastDay, "dd-mm-yyyy") />
+      <cfoutput>Last Date: #local.formattedDate#</cfoutput>
       <br>
-      <cfset today = Now()>
+      <cfset local.today = Now()>
       <!-- Get the last day of the current month -->
-      <cfset lastDayOfMonth = CreateDateTime(
-      Year(today),
-      Month(today) + 1,
+      <cfset local.lastDayOfMonth = CreateDateTime(
+      Year(local.today),
+      Month(local.today) + 1,
       1,
       0, 0, 0
       ) - CreateTimeSpan(0, 0, 1, 0)>
-      <cfset lastDayOfMonth = DateAdd("d", -1, lastDayOfMonth)>
+      <cfset local.lastDayOfMonth = DateAdd("d", -1, local.lastDayOfMonth)>
       <!-- Calculate the date of the last Friday within the current month -->
       <cfloop condition="DayOfWeek(lastDayOfMonth) neq 6">
-         <cfset lastDayOfMonth = DateAdd("d", -1, lastDayOfMonth)>
+         <cfset local.lastDayOfMonth = DateAdd("d", -1, local.lastDayOfMonth)>
       </cfloop>
       <!-- Format the date as desired (e.g., "dd-mm-yyyy") -->
-      <cfset formattedDate = DateFormat(lastDayOfMonth, 'dd-mm-yyyy')>
-      <cfoutput>Last Friday : #formattedDate#</cfoutput>
+      <cfset local.formattedDate = DateFormat(local.lastDayOfMonth, 'dd-mm-yyyy')>
+      <cfoutput>Last Friday : #local.formattedDate#</cfoutput>
       <br>
       <cfset today = Now()>
       <cfoutput>

@@ -42,7 +42,7 @@
                <cfset jsonString = serializeJSON(returnValue)>
 
                <!--- Output the JSON string in an input field --->
-               <input type="text" name="jsonInput" value="#htmlEditFormat(jsonString)#">
+               <input type="hidden" name="jsonInput" value="#htmlEditFormat(jsonString)#">
             <input type="submit" name="nxtPage" id="nxtPage" value="Next Page">
            </form>
          </cfoutput>

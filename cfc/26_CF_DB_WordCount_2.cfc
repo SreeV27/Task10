@@ -1,28 +1,22 @@
 <cfcomponent>
-            <cffunction name="init" access="public" returntype="any">
-       <cfargument name="text" type="string" required="true">
-
-      
-    </cffunction>
-
-
-
+           
     <cffunction  name="saveDoc" returntype="string">
         <cfargument name="fileupload" type="string" required="true">
        
-        <cfset destination=ExpandPath("/Task10/assets")>
+        <cfset local.destination=ExpandPath("/Task10/assets")>
         <cffile action = "upload" 
            fileField = "#arguments.fileupload#"
-           destination = "#destination#"
+           destination = "#local.destination#"
            nameConflict = "MakeUnique"
            allowedextensions=".doc,.txt" >
 
-           <cfset uploadedFilePath = destination & "/" & cffile.serverFile>
+           <cfset local.uploadedFilePath = destination & "/" & cffile.serverFile>
 
            <cffile action="read"
-        file="#uploadedFilePath#"
+        file="#local.uploadedFilePath#"
         variable="fileContent">
 
-        <cfdump var="#fileContent#">
+     
+        <cfreturn fileContent>
     </cffunction>
 </cfcomponent>

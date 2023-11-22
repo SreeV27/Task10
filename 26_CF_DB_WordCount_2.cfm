@@ -23,7 +23,6 @@
                   <li>
                      <label for="name">Upload a file</label>
                      <input type="file" id="myfile" name="myfile" accept=".txt, .doc">
-                    
                   </li>
                   </li>
                   <li class="mt-3">
@@ -32,31 +31,24 @@
                   <li class="mt-3">
                   </li>
                </ul>
-             
             </form>
-
-           
             <cfif structKeyExists(form,"submit")>
-
-                <cfif structKeyExists(form,"myfile")>           
-                    <cfinvoke component="cfc/26_CF_DB_WordCount_2" method="saveDoc" fileupload="form.myfile" returnvariable="result">
-                    </cfinvoke>
-                </cfif>
-             
-            <cfset myTagCloud = createObject("component", "cfc/26_CF_DB_WordCount_2").init(text=form.myfile)>  
-            <cfset local.text=#form.text#>
+            <cfif structKeyExists(form,"myfile")>           
+            <cfinvoke component="cfc/26_CF_DB_WordCount_2" method="saveDoc" fileupload="form.myfile" returnvariable="result">
+            </cfinvoke>
+            </cfif>
+            <cfset local.myTagCloud = createObject("component", "cfc/tagColud").init(text=result)>  
             <!--- Output the structure --->
             <!--- <cfdump var="#myTagCloud#"  >--->
             <cfinvoke component="cfc.tagColud" method="insertIntoDb" returnvariable="returnValue">
-               <cfinvokeargument  name="text"  value="#myTagCloud#">
+               <cfinvokeargument  name="text"  value="#local.myTagCloud#">
             </cfinvoke>
             <cfoutput>
                <cfif returnValue>
                   <form action="25_display.cfm" method="post">
-                     <input  type="hidden" name="sessionText" value="#local.text#">
+                     <input  type="hidden" name="sessionText" value="#result#">
                      <input type="submit" name="nxtPage" id="nxtPage" value="Next Page">                    
-                 </form>
-                
+                  </form>
                </cfif>
             </cfoutput>
             </cfif>
