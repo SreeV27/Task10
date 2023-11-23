@@ -21,12 +21,59 @@
            <cfelse>
             <cfset session.login=true>
             <cflocation  url="28_Admin_Page.cfm">
-           </cfif>
-                
+           </cfif>              
            
         <cfelse>  
             <cfreturn false>         
          
         </cfif>
     </cffunction>
+
+
+    <cffunction  name="addPageDetails" access="remote">
+        <cfargument  name="pageName" type="string" required="true">
+        <cfargument  name="pageDescription" type="string" required="true">
+
+        
+                            <cfquery name="qryAddPage" >
+                                INSERT INTO tb_page(pagename,pagedescription) 
+                                VALUES (
+                                <cfqueryparam value="#arguments.pageName#" cfsqltype="CF_SQL_VARCHAR">,
+                                <cfqueryparam value="#arguments.pageDescription#" cfsqltype="CF_SQL_LONGVARCHAR">
+                                ) 
+                             </cfquery> 
+             
+
+       
+                
+
+    </cffunction>
+
+    <cffunction  name="fetchPageDetails" access="public" returntype="any">
+        <cfquery name="qryFetchPageDetails">
+            SELECT id,pagename,pagedescription
+            FROM 
+            tb_page
+           
+        </cfquery>
+        <cfreturn qryFetchPageDetails>
+
+    </cffunction>
+
+    <cffunction  name="deletePageDetails" access="remote">
+        <cfargument  name="id"  required="true">      
+       
+                <cfquery name="qrydeletePageDetails" >
+                   DELETE 
+                   FROM
+                   tb_page
+                    WHERE
+                    id=
+                    <cfqueryparam value="#arguments.id#" cfsqltype="CF_SQL_INTEGER">                   
+                 </cfquery> 
+
+    </cffunction>
+
+
+    
 </cfcomponent>
