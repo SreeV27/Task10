@@ -44,14 +44,11 @@
          </center>
       </form>
       <cfif structKeyExists(form, "password")>
-        
       <cfinvoke  component="cfc/28_Simple_CMS" method="login" returnvariable="returnValue">
          <cfinvokeargument  name="userName"  value="#form.userName#">
          <cfinvokeargument  name="password"  value="#form.password#">
       </cfinvoke>
-      
-   <cfif returnValue>       
-         
+      <cfif returnValue>
          <script>
             document.getElementById("errorMsg").innerHTML = "";
             <cfset session.login=true>           

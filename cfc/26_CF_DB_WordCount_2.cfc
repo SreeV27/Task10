@@ -13,9 +13,8 @@
            <cfset local.uploadedFilePath = destination & "/" & cffile.serverFile>
 
            <cffile action="read"
-        file="#local.uploadedFilePath#"
-        variable="fileContent">
-
+                file="#local.uploadedFilePath#"
+                variable="fileContent">
      
         <cfreturn fileContent>
     </cffunction>
