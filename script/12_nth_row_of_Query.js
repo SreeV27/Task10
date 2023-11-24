@@ -16,6 +16,7 @@ function myVaidation(){
 }
 
 $(document).ready(function () {
+  
    var numberError = $('#numberError');
 
   $("#submit").click(function(){

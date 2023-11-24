@@ -48,8 +48,7 @@
                   <span>  multiply(1,2,3,4)</span>
                </td>
                <td>
-
-
+                  
                <cfobject component="cfc/11_Multiply_function" name="multiply">
                   <cfset res3=multiply.multiply(1,2,3,4)>
                   <cfoutput> #res3#</cfoutput>

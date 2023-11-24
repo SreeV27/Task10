@@ -8,6 +8,7 @@
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <link rel="stylesheet" href="style/1_CFIF_ELSEIF_ELSE.css">
       <script src="script/12_nth_row_of_Query.js">  </script>
+      <link href="style/common.css" rel="stylesheet">
       <title>Query</title>
    </head>
    <body>
@@ -22,9 +23,50 @@
             <span id="numberError"></span><br>
             <input class="mt-3"   type="submit" id="submit" name="submit" value="submit">
          </form>
-         <cfif  structKeyExists(form,"number")>
-         <cfset myComponent = createObject("component","cfc/12_nth_row_of_Query")>
-         <cfset result=myComponent.dbProcessing(#form.number#)>
+         <cfif  structKeyExists(form,"submit") >
+         <cfset local.myComponent = createObject("component","cfc/12_nth_row_of_Query")>
+         <cfset local.result=local.myComponent.fetchAllData()>
+         <cfset local.fecthSpeficdata=local.myComponent.fetchSpecificRow(#form.number#)>
+         <center>
+            <div>
+               <table class="mt-2">
+                  <tr>
+                     <!-- Display column headers -->
+                     <th>First Name</th>
+                     <th>Last Name</th>
+                     <!-- Add more columns as needed -->
+                  </tr>
+                  <cfoutput>
+                     <cfloop query="local.result">
+                        <tr>
+                           <!-- Display values from the query -->
+                           <td>#local.result.firstname#</td>
+                           <td>#local.result.lastname#</td>
+                           <!-- Add more columns as needed -->
+                        </tr>
+                     </cfloop>
+                  </cfoutput>
+               </table>
+               <table class="mt-2">
+                  <tr>
+                     <!-- Display column headers -->
+                     <th>First Name</th>
+                     <th>Last Name</th>
+                     <!-- Add more columns as needed -->
+                  </tr>
+                  <cfoutput>
+                     <cfloop query="local.fecthSpeficdata">
+                        <tr>
+                           <!-- Display values from the query -->
+                           <td>#local.fecthSpeficdata.firstname#</td>
+                           <td>#local.fecthSpeficdata.lastname#</td>
+                           <!-- Add more columns as needed -->
+                        </tr>
+                     </cfloop>
+                  </cfoutput>
+               </table>
+            </div>
+         </center>
          </cfif>
       </div>
    </body>

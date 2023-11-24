@@ -5,8 +5,8 @@
       <cfargument name="imagePath">      
             
 
-      <cfset local.dsn = "mydb">
-      <cfquery name="query" datasource="#local.dsn#">
+        
+      <cfquery name="qryInsertImage">
          insert into dbo.tb_image_details (name,description,image_name) 
          values(
                <cfqueryparam value="#arguments.imageName#" cfsqltype="CF_SQL_VARCHAR">,
