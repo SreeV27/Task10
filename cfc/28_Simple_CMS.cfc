@@ -82,7 +82,7 @@
           UPDATE                    
           tb_page
           SET
-          pagename =  
+          pagename =   
           <cfqueryparam value="#arguments.pageName#" cfsqltype="CF_SQL_VARCHAR">
           ,
           pagedescription = 
