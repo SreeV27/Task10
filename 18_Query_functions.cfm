@@ -22,49 +22,37 @@
            <cfset myQuery = queryNew("ID,Name,Email", "integer,varchar,varchar")>
 
                 <!-- Add data to the query -->
-                <cfset queryAddRow(myQuery, 3)>
+            <cfset queryAddRow(myQuery, 3)>
 
-                <!-- Set data for the first row -->
-                <cfset querySetCell(myQuery, "ID", 1, 1)>
-                <cfset querySetCell(myQuery, "Name", "Sreenath", 1)>
-                <cfset querySetCell(myQuery, "Email", "sree123@gmail.com", 1)>
+            <!-- Set data for the first row -->
+            <cfset querySetCell(myQuery, "ID", 1, 1)>
+            <cfset querySetCell(myQuery, "Name", "Sreenath", 1)>
+            <cfset querySetCell(myQuery, "Email", "sree123@gmail.com", 1)>
 
-                <!-- Set data for the second row -->
-                <cfset querySetCell(myQuery, "ID", 2, 2)>
-                <cfset querySetCell(myQuery, "Name", "Manu", 2)>
-                <cfset querySetCell(myQuery, "Email", "manu123@gmail.com", 2)>
+            <!-- Set data for the second row -->
+            <cfset querySetCell(myQuery, "ID", 2, 2)>
+            <cfset querySetCell(myQuery, "Name", "Manu", 2)>
+            <cfset querySetCell(myQuery, "Email", "manu123@gmail.com", 2)>
 
-                <!-- Set data for the third row -->
-                <cfset querySetCell(myQuery, "ID", 3, 3)>
-                <cfset querySetCell(myQuery, "Name", "varun", 3)>
-                <cfset querySetCell(myQuery, "Email", "varunms@gmail.com", 3)>
-
-
-
-
-
-        <table class="border">
-                <tr>
-                    <th  class="p-2 ">Id</th>
-                    <th  class="p-2 ">Name</th>
-                    <th  class="p-2 ">Email</th>
-                   
-                </tr>
+            <!-- Set data for the third row -->
+            <cfset querySetCell(myQuery, "ID", 3, 3)>
+            <cfset querySetCell(myQuery, "Name", "varun", 3)>
+            <cfset querySetCell(myQuery, "Email", "varunms@gmail.com", 3)>
+            
+            <table class="border">
+               <tr>
+                  <th  class="p-2 ">Id</th>
+                  <th  class="p-2 ">Name</th>
+                  <th  class="p-2 ">Email</th>                  
+               </tr>
                 <cfoutput query="myQuery">
-                    <tr>
-                        <td  class="p-2 ">#myQuery.ID#</td>
-                        <td  class="p-2 ">#myQuery.Name#</td>
-                        <td  class="p-2 ">#myQuery.Email#</td>
-                       
-                    </tr>
+                  <tr>
+                     <td  class="p-2 ">#myQuery.ID#</td>
+                     <td  class="p-2 ">#myQuery.Name#</td>
+                     <td  class="p-2 ">#myQuery.Email#</td>                     
+                  </tr>
                 </cfoutput>
             </table>
-
-
-
-
-
-
          </center>
       </div>
    </body>

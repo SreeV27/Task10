@@ -9,15 +9,14 @@
       <title>Task 3</title>
    </head>
    <body>
-      <div class=" pt-5 text-center">
-      
+      <div class=" pt-5 text-center">      
          Show below details in a page Today's date, current Month in numeric, current month in word, Last friday date, Last day of month. Show Last 5 days date & day
          Sunday should be red, Monday - green,Tuesday - orange, Wednesday - yellow, Thursday - bold black, Friday - blue, Saturday - bold red
          <form action="4_Date_with_colours.cfm"  method="post">
             <input  class="border-0 mt-3" type="submit"  name="submit" value="Click Me!">
          </form>
          <cfif structKeyExists(form, "submit")>
-         <cfinvoke component="cfc/4_Date_with_colours" method="dateFormatting">
+            <cfinvoke component="cfc/4_Date_with_colours" method="dateFormatting">
          </cfif>
       </div>
    </body>

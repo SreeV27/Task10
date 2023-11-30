@@ -26,14 +26,13 @@
          <div class=" pt-5 text-center">
             <cfinvoke  component="cfc/28_Simple_CMS" method="fetchPageDetails" returnvariable="returnValue">
             </cfinvoke>
-
             <div class="modal fade" id="exampleModalUser" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
                <div class="modal-dialog" role="document">
                   <div class="modal-content">
                      <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Page Details</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                           <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <div class="modal-body">
@@ -55,17 +54,13 @@
                   <table class="mt-3">
                      <tr>
                         <th class="d-none">id</th>
-                        <th>Page Name</th>
-                        
-                       
+                        <th>Page Name</th>  
                      </tr>
                      <cfoutput>
                         <cfloop query="returnValue">
                            <tr>
                               <td class="d-none">#returnValue.id#</td>
                               <td><button   class="view border-0 bg-white" data-pageid="#returnValue.id#">#returnValue.pagename#</button></td>
-                             
-                          
                            </tr>
                         </cfloop>
                      </cfoutput>
@@ -74,9 +69,7 @@
             </cfif>
          </div>
          <cfelse>
-         <cflocation 
-            url = "28_Simple_CMS_Index.cfm" 
-            >
+            <cflocation url = "28_Simple_CMS_Index.cfm">
       </cfif>
    </body>
 </html>

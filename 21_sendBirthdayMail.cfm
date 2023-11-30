@@ -43,20 +43,12 @@
             </div>
             <input class="mt-3" type="submit" name="submit" value="Send mail">
          </form>
-         <cfif  structKeyExists(form,"name") &&  structKeyExists(form,"email") && structKeyExists(form,"image") && structKeyExists(form,"wishes") >
-         <cfset destination=ExpandPath("/Task10/assets")>
-         <cffile action = "upload" 
-            fileField = "form.image"
-            destination = "#destination#"
-            nameConflict = "MakeUnique"
-            allowedextensions=".jpg, .jpeg, .png, .gif" >
-         <cfset uploadedFileName = cffile.serverFile>
-         <cfinvoke component="cfc/21_sendBirthdayMail" method="sendWish">
-            <cfinvokeargument name="name" value="#form.name#">
-            <cfinvokeargument name="email" value="#form.email#">
-            <cfinvokeargument name="wishes" value="#form.wishes#">
-            <cfinvokeargument name="image" value="#uploadedFileName#">
-         </cfinvoke>
+         <cfif  structKeyExists(form,"name")>      
+            <cfinvoke component="cfc/21_sendBirthdayMail" method="sendWish" fileupload="form.image">
+               <cfinvokeargument name="name" value="#form.name#">
+               <cfinvokeargument name="email" value="#form.email#">
+               <cfinvokeargument name="wishes" value="#form.wishes#">           
+            </cfinvoke>
          </cfif>
       </center>
    </body>

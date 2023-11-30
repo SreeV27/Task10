@@ -27,7 +27,7 @@
          <div class=" pt-5 text-center">
             <!-- Button trigger modal -->
             <button type="button" id="add" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Add Page
+                Add Page
             </button>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,15 +74,16 @@
                               <td>#returnValue.pagedescription#</td>
                               <td>
                                  <button  class="edit border-0 bg-white" data-pageid="#returnValue.id#"> 
-                                 <span class="material-symbols-outlined"  >
-                                 edit
-                                 </span>
+                                    <span class="material-symbols-outlined"  >
+                                    edit
+                                    </span>
                                  </button>
                               </td>
-                              <td><button class="border-0 bg-white" onclick="deleteRow(this)">
-                                 <span class="material-symbols-outlined">
-                                 delete
-                                 </span>
+                              <td>
+                                 <button class="border-0 bg-white" onclick="deleteRow(this)">
+                                    <span class="material-symbols-outlined">
+                                    delete
+                                    </span>
                                  </button>
                               </td>
                              
@@ -94,9 +95,7 @@
             </cfif>
          </div>
          <cfelse>
-         <cflocation 
-            url = "28_Simple_CMS_Index.cfm" 
-            >
+         <cflocation url = "28_Simple_CMS_Index.cfm">
       </cfif>
    </body>
 </html>

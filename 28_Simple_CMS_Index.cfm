@@ -26,11 +26,10 @@
                   <label for="userName">User Name</label>            
                   <input type="text" id="userName" name="userName">
                   </textarea>
-               </li>
-               </li>
+               </li>               
                <li class="mt-3">
                   <label for="password">Password</label>             
-                  <input class="ms-2" type="password" id="password" name="password" 
+                  <input class="ms-2" type="password" id="password" name="password" >
                </li>
                <li class="mt-3">
                </li>
@@ -44,21 +43,21 @@
          </center>
       </form>
       <cfif structKeyExists(form, "password")>
-      <cfinvoke  component="cfc/28_Simple_CMS" method="login" returnvariable="returnValue">
-         <cfinvokeargument  name="userName"  value="#form.userName#">
-         <cfinvokeargument  name="password"  value="#form.password#">
-      </cfinvoke>
-      <cfif returnValue>
-         <script>
-            document.getElementById("errorMsg").innerHTML = "";
-            <cfset session.login=true>           
-         </script>
-         <cfelse>
-         <script>
-            <cfset session.login=false>
-               document.getElementById("errorMsg").innerHTML = "Username and Password Mismatch";
-         </script>
-      </cfif>
+         <cfinvoke  component="cfc/28_Simple_CMS" method="login" returnvariable="returnValue">
+            <cfinvokeargument  name="userName"  value="#form.userName#">
+            <cfinvokeargument  name="password"  value="#form.password#">
+         </cfinvoke>
+         <cfif returnValue>
+            <script>
+               document.getElementById("errorMsg").innerHTML = "";
+               <cfset session.login=true>           
+            </script>
+            <cfelse>
+            <script>
+               <cfset session.login=false>
+                  document.getElementById("errorMsg").innerHTML = "Username and Password Mismatch";
+            </script>
+         </cfif>
       </cfif>
    </body>
 </html>

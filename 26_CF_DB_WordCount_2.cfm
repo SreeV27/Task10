@@ -33,24 +33,24 @@
                </ul>
             </form>
             <cfif structKeyExists(form,"submit")>
-            <cfif structKeyExists(form,"myfile")>           
-            <cfinvoke component="cfc/26_CF_DB_WordCount_2" method="saveDoc" fileupload="form.myfile" returnvariable="result">
-            </cfinvoke>
-            </cfif>
-            <cfset local.myTagCloud = createObject("component", "cfc/tagColud").init(text=result)>  
-            <!--- Output the structure --->
-            <!--- <cfdump var="#myTagCloud#"  >--->
-            <cfinvoke component="cfc.tagColud" method="insertIntoDb" returnvariable="returnValue">
-               <cfinvokeargument  name="text"  value="#local.myTagCloud#">
-            </cfinvoke>
-            <cfoutput>
-               <cfif returnValue>
-                  <form action="25_display.cfm" method="post">
-                     <input  type="hidden" name="sessionText" value="#result#">
-                     <input type="submit" name="nxtPage" id="nxtPage" value="Next Page">                    
-                  </form>
+               <cfif structKeyExists(form,"myfile")>           
+                  <cfinvoke component="cfc/26_CF_DB_WordCount_2" method="saveDoc" fileupload="form.myfile" returnvariable="result">
+                  </cfinvoke>
                </cfif>
-            </cfoutput>
+               <cfset local.myTagCloud = createObject("component", "cfc/tagColud").init(text=result)>  
+               <!--- Output the structure --->
+              
+               <cfinvoke component="cfc.tagColud" method="insertIntoDb" returnvariable="returnValue">
+                  <cfinvokeargument  name="text"  value="#local.myTagCloud#">
+               </cfinvoke>
+               <cfoutput>
+                  <cfif returnValue>
+                     <form action="25_display.cfm" method="post">
+                        <input  type="hidden" name="sessionText" value="#result#">
+                        <input type="submit" name="nxtPage" id="nxtPage" value="Next Page">                    
+                     </form>
+                  </cfif>
+               </cfoutput>
             </cfif>
          </div>
       </center>

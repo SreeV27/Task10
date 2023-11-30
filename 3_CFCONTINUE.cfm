@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="style/1_CFIF_ELSEIF_ELSE.css">
       <script src="script/1_CFIF_ELSEIF_ELSE.js">  </script>
       <title>Task 3</title>
+     
    </head>
    <body>
       <div class=" pt-5 text-center">
@@ -20,10 +21,18 @@
             <span id="numberError"></span><br>
             <button  id="submit" class="border-0 mt-3"  type="submit" value="submit">submit</button>
          </form>
+       
+         <cfset local = {}>
          <cfif structKeyExists(form, "number")>
-         <cfset myComponent = createObject("component","cfc/3_CFCONTINUE")>
-         <cfset result = myComponent.dividedByThree(#form.number#)>        
+            <cfset local.myComponent = createObject("component","cfc/3_CFCONTINUE")>
+            <cfset local.result = local.myComponent.dividedByThree(#form.number#)> 
          </cfif>
+         <cfoutput>           
+            <cfif structKeyExists(local, "result") && len(trim(local.result)) gt 0>
+               #local.result#
+            </cfif>  
+         </cfoutput> 
+
       </div>
    </body>
 </html>

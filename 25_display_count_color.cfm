@@ -23,26 +23,24 @@
          <cfinvokeargument  name="text"  value="#jsonObject#">
       </cfinvoke>
       <center>
-      <table>
-         <thead>
-            <th>Text</th>
-            <th>Count</th>
-         </thead>
-         <tbody>
-            <cfoutput>
-               <cfloop collection="#returnValue#" item="word">
-                  <tr class="text-#returnValue[word]#">
-                     <td>#word#</td>
-                     <td>#returnValue[word]#</td>
-                  </tr>
-               </cfloop>
-            </cfoutput>
-         </tbody>
-      </table>
       <cfoutput>
-         <form class="mt-3" action="#session.currentURL#" method="post">           
-            <input type="submit" name="nxtPage" id="nxtPage" value="Exit">
-         </form>
+         <table>
+            <thead>
+               <th>Text</th>
+               <th>Count</th>
+            </thead>
+            <tbody>            
+                  <cfloop collection="#returnValue#" item="word">
+                     <tr class="text-#returnValue[word]#">
+                        <td>#word#</td>
+                        <td>#returnValue[word]#</td>
+                     </tr>
+                  </cfloop>            
+            </tbody>
+         </table>      
+            <form class="mt-3" action="#session.currentURL#" method="post">           
+               <input type="submit" name="nxtPage" id="nxtPage" value="Exit">
+            </form>
       </cfoutput>
       </cfif>
    </body>

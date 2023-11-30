@@ -121,14 +121,14 @@
                   <span id="" class="text-danger">*</span>
                   <span id="nameError" class="text-danger"></span><br>  
                   <span class="d-flex">
-                  <span> 
-                  <input type="text" name="fname" size="8" id="fname"><br>
-                  <span class="fw-normal fs-11 ">First</span>
-                  </span>
-                  <span class="ms-2">
-                  <input type="text" name="lname" size="14" id="lname"><br>
-                  <span class="fw-normal fs-11 ">Last</span>
-                  </span>                     
+                     <span> 
+                        <input type="text" name="fname" size="8" id="fname"><br>
+                        <span class="fw-normal fs-11 ">First</span>
+                     </span>
+                     <span class="ms-2">
+                        <input type="text" name="lname" size="14" id="lname"><br>
+                        <span class="fw-normal fs-11 ">Last</span>
+                     </span>                     
                   </span>                 
                </li>
                <li onfocus="changeBackgroundColor(this)" tabindex="0">
@@ -146,20 +146,20 @@
                   <span id="" class="text-danger">*</span>
                   <span id="phnoError" class="text-danger"></span><br>      
                   <span class="d-flex">
-                  <span>
-                  <input  class="w-27"type="text" id="tel_1" name="tel_1"  maxlength="3"><br>
-                  <span class="ms-1">###</span>
-                  </span>
-                  <span class="ms-1">-</span>    
-                  <span>
-                  <input  class="w-27 ms-1"type="text" id="tel_2" name="tel_2"  maxlength="3"><br>
-                  <span class="ms-1">###</span>
-                  </span>   
-                  <span class="ms-1">-</span>
-                  <span>
-                  <input  class="w-33 ms-1" type="text" id="tel_3" name="tel_3"  maxlength="4"><br>
-                  <span class="ms-1">####</span>
-                  </span>  
+                     <span>
+                        <input  class="w-27"type="text" id="tel_1" name="tel_1"  maxlength="3"><br>
+                        <span class="ms-1">###</span>
+                        </span>
+                        <span class="ms-1">-</span>    
+                        <span>
+                        <input  class="w-27 ms-1"type="text" id="tel_2" name="tel_2"  maxlength="3"><br>
+                        <span class="ms-1">###</span>
+                        </span>   
+                        <span class="ms-1">-</span>
+                        <span>
+                        <input  class="w-33 ms-1" type="text" id="tel_3" name="tel_3"  maxlength="4"><br>
+                        <span class="ms-1">####</span>
+                     </span>  
                   </span>
                </li>
                <li>
@@ -180,11 +180,7 @@
   
       <cfif structKeyExists(form,"position") >
              
-            
-         
-         <cfinvoke component="cfc/23_CFC_JS" method="saveData" fileToUpload="form.resume">
-
-            
+         <cfinvoke component="cfc/23_CFC_JS" method="saveData" fileToUpload="form.resume">            
             <cfinvokeargument name="position" value="#form.position#">
             <cfinvokeargument name="relocate" value="#form.relocateResult#">
 
@@ -200,8 +196,6 @@
             <cfinvokeargument name="lname" value="#form.lname#">
             <cfinvokeargument name="email" value="#form.mail#">
             <cfinvokeargument name="phno" value="#form.tel_1##form.tel_2##form.tel_3#">   
-   
-            
          </cfinvoke>
 
       </cfif>
