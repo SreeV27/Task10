@@ -145,12 +145,12 @@
           </cfloop>
           <!-- Sort the array based on key length in descending order and then alphabetically -->
           <cfset ArraySort(local.keyLengths, function(a, b) {
-          if (b.length - a.length neq 0) {
-          return b.length - a.length;  // Sort by length in descending order
-          } else {
-          return CompareNoCase(a.key, b.key);  // If lengths are the same, sort alphabetically
-          }
-          })>
+            if (b.length - a.length neq 0) {
+            return b.length - a.length;  // Sort by length in descending order
+            } else {
+            return CompareNoCase(a.key, b.key);  // If lengths are the same, sort alphabetically
+            }
+            })>
           <!-- Create a new empty structure to store sorted key-value pairs -->
           <cfset local.sortedStructure = StructNew("ordered")>
           <!-- Iterate through the sorted array and add key-value pairs to the new structure -->

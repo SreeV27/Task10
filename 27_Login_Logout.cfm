@@ -45,24 +45,22 @@
          </center>
       </form>
       <cfif structKeyExists(form, "password")>
-      <cfinvoke  component="cfc/27_Login_Logout" method="login" returnvariable="returnValue">
-         <cfinvokeargument  name="userName"  value="#form.userName#">
-         <cfinvokeargument  name="password"  value="#form.password#">
-      </cfinvoke>
-      <cfif returnValue>
-         <script>
-            document.getElementById("errorMsg").innerHTML = "";
-            <cfset session.login=true>
-            <cflocation 
-               url = "welcome.cfm" 
-             >
-         </script>
-         <cfelse>
-         <script>
-            <cfset session.login=false>
-               document.getElementById("errorMsg").innerHTML = "Username and Password Mismatch";
-         </script>
-      </cfif>
+         <cfinvoke  component="cfc/27_Login_Logout" method="login" returnvariable="returnValue">
+            <cfinvokeargument  name="userName"  value="#form.userName#">
+            <cfinvokeargument  name="password"  value="#form.password#">
+         </cfinvoke>
+         <cfif returnValue>
+            <script>
+               document.getElementById("errorMsg").innerHTML = "";
+               <cfset session.login=true>
+               <cflocation url = "welcome.cfm">
+            </script>
+            <cfelse>
+               <script>
+                  <cfset session.login=false>
+                     document.getElementById("errorMsg").innerHTML = "Username and Password Mismatch";
+               </script>
+         </cfif>
       </cfif>
    </body>
 </html>

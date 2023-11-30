@@ -18,12 +18,12 @@
           <cfif local.roleValue eq "user">
              <cfset session.login=true>
              <cflocation  url="28_User_Page.cfm">
-             <cfelse>
-             <cfset session.login=true>
-             <cflocation  url="28_Admin_Page.cfm">
+               <cfelse>
+                  <cfset session.login=true>
+                  <cflocation  url="28_Admin_Page.cfm">
           </cfif>
           <cfelse>
-          <cfreturn false>
+            <cfreturn false>
        </cfif>
     </cffunction>
 
@@ -33,8 +33,7 @@
        <cfquery name="qryAddPage" >
           INSERT INTO tb_page(pagename,pagedescription) 
           VALUES (
-          <cfqueryparam value="#arguments.pageName#" cfsqltype="CF_SQL_VARCHAR">
-          ,
+          <cfqueryparam value="#arguments.pageName#" cfsqltype="CF_SQL_VARCHAR">,
           <cfqueryparam value="#arguments.pageDescription#" cfsqltype="CF_SQL_LONGVARCHAR">
           ) 
        </cfquery>
@@ -56,8 +55,7 @@
           FROM 
           tb_page
           WHERE
-          id= 
-          <cfqueryparam value="#arguments.id#" cfsqltype="CF_SQL_INTEGER">
+          id=<cfqueryparam value="#arguments.id#" cfsqltype="CF_SQL_INTEGER">
        </cfquery>
        <cfreturn qryFetchPageDetailsUsingId>
     </cffunction>
@@ -69,8 +67,7 @@
           FROM
           tb_page
           WHERE
-          id=
-          <cfqueryparam value="#arguments.id#" cfsqltype="CF_SQL_INTEGER">
+          id=<cfqueryparam value="#arguments.id#" cfsqltype="CF_SQL_INTEGER">
        </cfquery>
     </cffunction>
 
@@ -82,14 +79,10 @@
           UPDATE                    
           tb_page
           SET
-          pagename =   
-          <cfqueryparam value="#arguments.pageName#" cfsqltype="CF_SQL_VARCHAR">
-          ,
-          pagedescription = 
-          <cfqueryparam value="#arguments.pageDescription#" cfsqltype="CF_SQL_LONGVARCHAR">
+          pagename =<cfqueryparam value="#arguments.pageName#" cfsqltype="CF_SQL_VARCHAR">,
+          pagedescription =<cfqueryparam value="#arguments.pageDescription#" cfsqltype="CF_SQL_LONGVARCHAR">
           WHERE
-          id=
-          <cfqueryparam value="#arguments.id#" cfsqltype="CF_SQL_INTEGER">
+          id=<cfqueryparam value="#arguments.id#" cfsqltype="CF_SQL_INTEGER">
        </cfquery>
     </cffunction>
 

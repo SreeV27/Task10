@@ -15,17 +15,15 @@
       </div>
       <center>
       <div class="mt-5">
-         <form action="19_CF_Cookie.cfm" method="post" >
-            <input type="submit" name="submit" value="submit">
-         </form>
+         <form action="19_CF_Cookie.cfm" method="post">
+            <button name="submit" >Submit</button>
+        </form>
+        <cfif structKeyExists(form, "submit")>
+            <cfinvoke component="cfc/19_CF_Cookie" method="visitCounting" returnvariable="result"></cfinvoke>
+            <cfoutput><br>The number of times the page get visit is : #result#</cfoutput>
+        </cfif>
+        
       </div>
-      <center>
-      <cfparam name="session.sessionCounter" default=0>
-      <cfparam name="cookie.VisitsCounter" default=0>
-      <cfif structKeyExists(form, "submit")>
-      <cfset session.sessionCounter = session.sessionCounter + 1>
-      <cfcookie name="VisitsCounter" value="#session.sessionCounter#" expires="session">
-      <cfoutput>You Visted this page:#cookie.VisitsCounter# time</cfoutput>
-      </cfif>
+      <center>      
    </body>
 </html>

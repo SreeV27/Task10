@@ -20,29 +20,26 @@
             <button  id="submit" class="border-0 mt-3"  type="submit" value="submit">submit</button>
          </form>
          <cfif structKeyExists(form, "number")>
-         <cfset myComponent = createObject("component","cfc/1_CFIF_ELSEIF_ELSE")>
-         <cfset local.result = myComponent.grading(#form.number#)>
-         <cfif local.result =="5">
+            <cfset local.myComponent = createObject("component","cfc/1_CFIF_ELSEIF_ELSE")>
+            <cfset local.result = local.myComponent.grading(#form.number#)>
             <cfoutput>
-               <p class="vrygood fs-2">Very Good</p>
+               <cfif local.result =="5">               
+                  <p class="vrygood fs-2">Very Good</p>  
+
+               <cfelseif  local.result =="4">               
+                  <p class="good fs-2">Good</p>
+               
+               <cfelseif  local.result =="3">               
+                  <p class="fair fs-2">Fair</p>
+               
+               <cfelseif  local.result =="2" || local.result == "1">               
+                  <p class="ok fs-2">Ok</p>
+               
+               <cfelse>               
+                  <p class="error fs-2">Please Enter a Value Between 1 and 5</p>
+              
+                </cfif>
             </cfoutput>
-            <cfelseif  local.result =="4">
-            <cfoutput>
-               <p class="good fs-2">Good</p>
-            </cfoutput>
-            <cfelseif  local.result =="3">
-            <cfoutput>
-               <p class="fair fs-2">Fair</p>
-            </cfoutput>
-            <cfelseif  local.result =="2" || result == "1">
-            <cfoutput>
-               <p class="ok fs-2">Ok</p>
-            </cfoutput>
-            <cfelse>
-            <cfoutput>
-               <p class="error fs-2">Please Enter a Value Between 1 and 5</p>
-            </cfoutput>
-         </cfif>
          </cfif>
       </div>
    </body>

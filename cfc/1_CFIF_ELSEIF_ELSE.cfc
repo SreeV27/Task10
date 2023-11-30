@@ -1,7 +1,6 @@
 <cfcomponent>
    <cffunction name="grading" access="public" >
-        <cfargument name="inputValue">
-        
+        <cfargument name="inputValue">        
             <cfif "#arguments.inputValue#" ==5>
                 <cfreturn 5>
             <cfelseif "#arguments.inputValue#"==4>

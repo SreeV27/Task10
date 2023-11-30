@@ -19,10 +19,10 @@ return false;
 
 function validateCaptcha(){
 
-   
+   var captchaGenerated=$("#captcha").val();
     var captcha = $("#captcha").val();
     var captchaError = $("#captchaError");
-    if (captcha == captchaText) {
+    if (captcha == captchaGenerated) {
         captchaError.text("");
         return true; 
     }
@@ -37,7 +37,6 @@ function validateCaptcha(){
 
 function validateForm(){
 
-
     if(validateEmail() && validateCaptcha()){
       alert('Email Address successfully subscribe our newsletter')
         return true;
@@ -45,7 +44,9 @@ function validateForm(){
         
     }
     else{
+
         event.preventDefault(); 
+        return false;
 
 
     }

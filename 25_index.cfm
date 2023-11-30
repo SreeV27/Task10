@@ -25,7 +25,7 @@
                      <textarea id="text" name="text" rows="4" cols="30">
                      </textarea>
                   </li>
-                  </li>
+                  
                   <li class="mt-3">
                      <input type="submit" name="submit" id="submit" onclick=insertIntoDb()>
                   </li>
@@ -35,22 +35,22 @@
              
             </form>
             <cfif structKeyExists(form,"submit")>
-            <cfset myTagCloud = createObject("component", "cfc/tagColud").init(text=form.text)>  
-            <cfset local.text=#form.text#>
-            <!--- Output the structure --->
-            <!--- <cfdump var="#myTagCloud#"  >--->
-            <cfinvoke component="cfc.tagColud" method="insertIntoDb" returnvariable="returnValue">
-               <cfinvokeargument  name="text"  value="#myTagCloud#">
-            </cfinvoke>
-            <cfoutput>
-               <cfif returnValue>
-                  <form action="25_display.cfm" method="post">
-                     <input  type="hidden" name="sessionText" value="#local.text#">
-                     <input type="submit" name="nxtPage" id="nxtPage" value="Next Page">                    
-                 </form>
-                
-               </cfif>
-            </cfoutput>
+               <cfset myTagCloud = createObject("component", "cfc/tagColud").init(text=form.text)>  
+               <cfset local.text=#form.text#>
+               <!--- Output the structure --->
+             
+               <cfinvoke component="cfc.tagColud" method="insertIntoDb" returnvariable="returnValue">
+                  <cfinvokeargument  name="text"  value="#myTagCloud#">
+               </cfinvoke>
+               <cfoutput>
+                  <cfif returnValue>
+                     <form action="25_display.cfm" method="post">
+                        <input  type="hidden" name="sessionText" value="#local.text#">
+                        <input type="submit" name="nxtPage" id="nxtPage" value="Next Page">                    
+                     </form>
+                  
+                  </cfif>
+               </cfoutput>
             </cfif>
          </div>
       </center>
