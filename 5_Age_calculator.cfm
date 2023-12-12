@@ -18,9 +18,28 @@
             <input  class="border-0" type="date" id="motherDob" name="motherDob"><br>
             <input  class="border-0 mt-3" type="submit"  name="submit" value="Submit">
          </form>
-         <cfif structKeyExists(form, "submit")>
-         <cfset local.myComponent = createObject("component","cfc/5_Age_calculator")>
-         <cfset local.result = local.myComponent.age(#form.userDob#,#form.motherDob#)>
+         <cfif structKeyExists(form, "submit")>        
+            <cfinvoke  component="cfc/5_Age_calculator" method="age" returnvariable="result">
+               <cfinvokeargument  name="userDob"  value="#form.userDob#">
+               <cfinvokeargument  name="motherDob"  value="#form.motherDob#">
+            </cfinvoke>
+         </cfif>
+         <cfif structKeyExists(result, "userAge")>         
+            <cfoutput>
+               User is  #result.userAge# years old.
+            </cfoutput>
+            <br>
+            <cfoutput>
+                  Age of his mother at the time delivered him is  #result.deliveredAge# years old.
+               </cfoutput>
+               <br>
+            <cfoutput>
+                  Days are remaining for user birthday is:#result.userBdayRmngDays#.
+               </cfoutput>
+               <br>
+            <cfoutput>
+                  Days are remaining for mothers birthday is:#result.motherBdayRmngDays#.
+            </cfoutput>      
          </cfif>
       </div>
    </body>

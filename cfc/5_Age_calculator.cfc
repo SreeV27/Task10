@@ -1,21 +1,19 @@
 <cfcomponent>
-   <cffunction name="age" access="public">
+   <cffunction name="age" access="public" returntype="struct">
       <cfargument name="userDob">
       <cfargument name="motherDob">
       <cfset local.userDob = "#arguments.userDob#">
       <cfset local.motherDob = "#arguments.motherDob#">
+      <cfset dateStruct = {}>
       <cfset local.currentDate = Now()>
       <cfset local.userAge = DateDiff("yyyy", local.userDob, local.currentDate)>
-      <cfoutput>
-         User is  #userAge# years old.
-      </cfoutput>
-      <br>
+      <cfset dateStruct["userAge"] = local.userAge>
+     
       <cfset local.motherAge = DateDiff("yyyy", local.motherDob, local.currentDate)>
       <cfset local.deliveredAge = local.motherAge-local.userAge>
-      <cfoutput>
-         Age of his mother at the time delivered him is  #local.deliveredAge# years old.
-      </cfoutput>
-      <br>
+
+      <cfset dateStruct["deliveredAge"] = local.deliveredAge>
+      
       <!--- User Remaining Days--->
       <!-- Calculate the next age (adding 1 year) -->
       <cfset local.nextAge = local.userAge + 1>
@@ -26,10 +24,8 @@
          <cfset local.nextBirthday = DateAdd("yyyy", 1, local.nextBirthday)>
       </cfif>
       <cfset local.userBdayRmngDays = DateDiff("d", local.currentDate,local.nextBirthday )>
-      <cfoutput>
-         Days are remaining for user birthday is:#local.userBdayRmngDays#.
-      </cfoutput>
-      <br>
+      <cfset dateStruct["userBdayRmngDays"] = local.userBdayRmngDays>
+      
       <!--- Mothers Remaining Days--->
       <!-- Calculate the next age (adding 1 year) -->
       <cfset local.nextAge = local.motherAge + 1>
@@ -40,8 +36,10 @@
          <cfset local.nextBirthday = DateAdd("yyyy", 1, local.nextBirthday)>
       </cfif>
       <cfset local.motherBdayRmngDays = DateDiff("d", local.currentDate,local.nextBirthday )>
-      <cfoutput>
-         Days are remaining for mothers birthday is:#local.motherBdayRmngDays#.
-      </cfoutput>
+      <cfset dateStruct["motherBdayRmngDays"] = local.motherBdayRmngDays>
+
+     
+
+      <cfreturn dateStruct>
    </cffunction>
 </cfcomponent>
