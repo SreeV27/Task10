@@ -166,10 +166,8 @@
                   <input class="p-1" type="submit" id="submit">                  
                </li>
             </ul>
-         </form>
-        
-      </div>
-      
+         </form>        
+      </div>      
 
       <div class="pt-3 text-center footer_clr">
          <!--- Footer--->
